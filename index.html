@@ -1,0 +1,834 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>E-commerce Homepage</title>
+            <link rel="stylesheet" href="style.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        </head> 
+        
+<!-- ADS --> 
+<section class="image-slider">
+    <div class="slider-wrapper">
+        <div class="slide" data-name="Gpu" data-price="₱45,000" data-img="ads1.png">
+            <img src="ads1.png" alt="Ad 1">
+            <div class="product-details">
+                <p class="product-name">Gpu</p>
+                <p class="product-price">₱45,000</p>
+            </div>
+        </div>
+        <div class="slide" data-name="Helmet" data-price="₱8,200" data-img="ads2.webp">
+            <img src="ads2.webp" alt="Ad 2">
+            <div class="product-details">
+                <p class="product-name">Helmet</p>
+                <p class="product-price">₱8,200</p>
+            </div>
+        </div>
+        <div class="slide" data-name="Shoes" data-price="₱4,000" data-img="ads3.png">
+            <img src="ads3.png" alt="Ad 3">
+            <div class="product-details">
+                <p class="product-name">Shoes</p>
+                <p class="product-price">₱4,000</p>
+            </div>
+        </div>
+        <div class="slide" data-name="Water Bottle" data-price="₱2,800" data-img="ads4.png">
+            <img src="ads4.png" alt="Ad 4">
+            <div class="product-details">
+                <p class="product-name">Water Bottle</p>
+                <p class="product-price">₱2,800</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Product Modal -->
+<div id="productModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <img id="modalImg" src="" alt="Product Image">
+        <h2 id="modalName"></h2>
+        <p id="modalPrice"></p>
+        <p id="modalDesc"></p>
+
+        <!-- Quantity input -->
+        <input type="number" id="quantityInput" value="1" min="1" />
+
+        <button id="addToCartBtn">Add to Cart</button>
+
+        <!-- Remove from Cart Button (initially hidden) -->
+        <button id="removeFromCartBtn" style="display: none;">Remove from Cart</button>
+    </div>
+</div>
+
+
+
+        <body>
+            <header>
+                <div class="logo">
+                    <img src="logo.webp" alt="Logo">
+                </div>
+
+                <div class="site-title">
+                    <span class="orange">P</span>urchase<span class="orange">H</span>ub
+                </div>
+                
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="Search for products...">
+                    <div id="suggestions" class="suggestions"></div>
+                </div>               
+                
+                <div class="icons-container">
+                    <div class="cart-icon">
+                        <a href="#" id="cart-icon"><i class="fas fa-shopping-cart"></i> Cart</a>
+                    </div>
+                    <div class="chat-icon">
+                        <a href="#"><i class="fas fa-comment-dots"></i> Chat</a>
+                    </div>
+                    <div class="checkout-icon">
+                        <a href="#" id="checkout-btn"><i class="fas fa-credit-card"></i> Checkout</a>
+                    </div>
+                </div>    
+            </header>
+
+
+            <section class="featured-categories">
+                <h2>Recommendations</h2>
+                <div class="category-grid">
+                    <div class="category">
+                        <img src="" alt="Category 1">
+                        <p></p>
+                    </div>
+                    <div class="category">
+                        <img src="" alt="Category 2">
+                        <p></p>
+                    </div>
+                    <div class="category">
+                        <img src="" alt="Category 3">
+                        <p></p>
+                    </div>
+                    <div class="category">
+                        <img src="" alt="Category 4">
+                        <p></p>
+                    </div>
+                </div>
+            </section>
+
+
+        <!-- PAGE 1 --> 
+            <section class="popular-products">
+                <h2>Products</h2>
+
+                <div class="category-grid" style="margin-bottom: 20px;">
+                    <div class="category">
+                        <img src="shoes ads.png" alt="Category 1">
+                        <p>Shoes</p>
+                    </div>
+                    <div class="category">
+                        <img src="gpu ads.png" alt="Category 2">
+                        <p>Gpu</p>
+                    </div>
+                    <div class="category">
+                        <img src="watch ads.png " alt="Category 3">
+                        <p>Watch</p>
+                    </div>
+                    <div class="category">
+                        <img src="router ads.png" alt="Category 4">
+                        <p>Router</p>
+                    </div>
+                </div>
+
+                <div class="category-grid">
+                    <div class="category">
+                        <img src="helmet ads.webp" alt="Category 5">
+                        <p>Helmet</p>
+                    </div>
+                    <div class="category">
+                        <img src="peripherals ads.png" alt="Category 6">
+                        <p>Peripheral</p>
+                    </div>
+                    <div class="category">
+                        <img src="bags ads.png" alt="Category 7">
+                        <p>Bags</p>
+                    </div>
+                    <div class="category">
+                        <img src="water container ads.png" alt="Category 8">
+                        <p>Water Bottle</p>
+                    </div>
+                </div>
+            </section>
+
+        <!-- PAGE 2 -->
+    <section class="scrollable-section">
+        <h2>Latest Arrivals</h2>
+        <div class="scrollable-content">
+            <div class="product">
+                <img src="mech kb.png" alt="Mechanical Keyboard">
+                <div class="product-info">
+                    <p class="product-name">Mechanical Keyboard</p>
+                    <p class="product-name">₱2,600</p>
+                    <input type="number" class="quantity" value="1" min="1">
+                    <button class="add-to-cart" data-name="Mechanical Keyboard" data-price="3200">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="gaming hs.png" alt="Gaming Headset">
+                <div class="product-info">
+                    <p class="product-name">Gaming Headset</p>
+                    <p class="product-name">₱3,000</p>
+                    <input type="number" class="quantity" value="1" min="1">
+                    <button class="add-to-cart" data-name="Gaming Headset" data-price="4500">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="wireless mouse.jpg!sw800" alt="Wireless Mouse">
+                <div class="product-info">
+                    <p class="product-name">Wireless Mouse</p>
+                    <p class="product-name">₱4,500</p>
+                    <input type="number" class="quantity" value="1" min="1">
+                    <button class="add-to-cart" data-name="Wireless Mouse" data-price="2000">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="4k moni.png" alt="Monitor">
+                <div class="product-info">
+                    <p class="product-name">Monitor</p>
+                    <p class="product-name">₱8,200</p>
+                    <input type="number" class="quantity" value="1" min="1">
+                    <button class="add-to-cart" data-name="4K Monitor" data-price="15000">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="scrollable-section">
+        <h2>Best Sellers</h2>
+        <div class="scrollable-content">
+            <div class="product">
+                <img src="gaming lp.png" alt="Gaming Laptop">
+                <div class="product-info">
+                    <p class="product-name">Gaming Laptop</p>
+                    <p class="product-name">₱85,000</p>
+                    <input type="number" class="quantity" value="1" min="1">
+                    <button class="add-to-cart" data-name="Gaming Laptop" data-price="85000">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="gaming pc.png" alt="Gaming PC">
+                <div class="product-info">
+                    <p class="product-name">Gaming PC</p>
+                    <p class="product-name">₱52,000</p>
+                    <input type="number" class="quantity" value="1" min="1">
+                    <button class="add-to-cart" data-name="Gaming PC" data-price="42000">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="gaming chair.png" alt="Gaming Chair">
+                <div class="product-info">
+                    <p class="product-name">Gaming Chair</p>
+                    <p class="product-name">₱10,500</p>
+                    <input type="number" class="quantity" value="1" min="1">
+                    <button class="add-to-cart" data-name="Gaming Chair" data-price="12500">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="mousepad.png" alt="Mousepad">
+                <div class="product-info">
+                    <p class="product-name">Mousepad</p>
+                    <p class="product-name">₱700</p>
+                    <input type="number" class="quantity" value="1" min="1">
+                    <button class="add-to-cart" data-name="Mousepad" data-price="28000">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 3 -->
+
+
+
+
+                    
+
+
+    <!-- JAVASCRIPT (SUGGESTIONS) -->
+    <script>
+
+                const searchInput = document.getElementById("search-input");
+                const suggestionsContainer = document.getElementById("suggestions");
+
+                const products = [
+                    "Gpu", "Helmet", "Shoes", "Water Bottle", "Watch", "Router",
+                    "Peripheral", "Bags", "Mechanical Keyboard", "Gaming Headset", 
+                    "Wireless Mouse", "Monitor", "Gaming Laptop", "Gaming PC",
+                    "Gaming Chair", "Mousepad"
+                ];
+
+                searchInput.addEventListener("input", function () {
+                    const query = searchInput.value.toLowerCase().trim();
+                    suggestionsContainer.innerHTML = "";
+                    
+                    if (query.length === 0) {
+                        suggestionsContainer.style.display = "none";
+                        return;
+                    }
+
+                    const filteredSuggestions = products.filter(product =>
+                        product.toLowerCase().startsWith(query)
+                    );
+
+                    if (filteredSuggestions.length > 0) {
+                        suggestionsContainer.style.display = "block";
+                        filteredSuggestions.forEach(suggestion => {
+                            const div = document.createElement("div");
+                            div.classList.add("suggestion-item");
+                            div.textContent = suggestion;
+                            div.addEventListener("click", function () {
+                                searchInput.value = suggestion;
+                                suggestionsContainer.innerHTML = "";
+                                suggestionsContainer.style.display = "none";
+                            });
+                            suggestionsContainer.appendChild(div);
+                        });
+                    } else {
+                        suggestionsContainer.style.display = "none";
+                    }
+                });
+
+                document.addEventListener("click", function (e) {
+                    if (!searchInput.contains(e.target) && !suggestionsContainer.contains(e.target)) {
+                        suggestionsContainer.style.display = "none";
+                    }
+                });
+
+                
+
+        // Cart Array
+        let cart = [];
+
+        // Add/Remove Button Logic
+        document.querySelectorAll(".add-to-cart").forEach(button => {
+            button.addEventListener("click", function () {
+                const productName = this.dataset.name;
+                const productPrice = parseFloat(this.dataset.price);
+                const quantity = parseInt(this.previousElementSibling.value);
+
+                const existingItemIndex = cart.findIndex(item => item.name === productName);
+
+                // If item already exists, update quantity
+                if (existingItemIndex !== -1) {
+                    cart[existingItemIndex].quantity += quantity;
+                    alert(`✅ Added ${quantity} more x ${productName} to your cart!`);
+                } else {
+                    // Add new item to cart
+                    cart.push({
+                        name: productName,
+                        price: productPrice,
+                        quantity: quantity
+                    });
+
+                    // Create "Remove from Cart" button dynamically if not already added
+                    if (!this.nextElementSibling || !this.nextElementSibling.classList.contains("remove-from-cart")) {
+                        createRemoveButton(this, productName);
+                    }
+
+                    alert(`✅ Added ${quantity} x ${productName} to your cart!`);
+                }
+
+                this.textContent = "Add More"; // Change text to "Add More"
+                updateCartIcon();
+            });
+        });
+
+        // Create Remove Button Dynamically
+        function createRemoveButton(button, productName) {
+            const removeButton = document.createElement("button");
+            removeButton.textContent = "Remove from Cart";
+            removeButton.classList.add("remove-from-cart");
+            removeButton.style.backgroundColor = "#e60000";
+            removeButton.dataset.name = productName;
+            button.parentNode.appendChild(removeButton);
+        }
+
+        // Remove from Cart Logic
+        document.addEventListener("click", function (e) {
+            if (e.target.classList.contains("remove-from-cart")) {
+                const productName = e.target.dataset.name;
+                const itemIndex = cart.findIndex(item => item.name === productName);
+
+                if (itemIndex !== -1) {
+                    const quantityToRemove = parseInt(e.target.previousElementSibling.previousElementSibling.value) || 1;
+                    const currentQuantity = cart[itemIndex].quantity;
+
+                    // Check if removing more than available quantity
+                    if (quantityToRemove > currentQuantity) {
+                        alert(`⚠️ Invalid quantity! You only have ${currentQuantity} x ${productName} in your cart.`);
+                        return; // Exit if invalid quantity
+                    }
+
+                    if (quantityToRemove === currentQuantity) {
+                        // Remove item if quantity matches
+                        cart.splice(itemIndex, 1);
+                        e.target.previousElementSibling.textContent = "Add to Cart";
+                        e.target.remove(); // Remove the button
+                        alert(`❌ Removed ${productName} from your cart!`);
+                    } else {
+                        // Deduct only the specified quantity
+                        cart[itemIndex].quantity -= quantityToRemove;
+                        alert(`➖ Removed ${quantityToRemove} x ${productName} from your cart!`);
+                    }
+
+                    updateCartIcon();
+                }
+            }
+        });
+
+        // Update Cart Icon with Count
+        function updateCartIcon() {
+            const cartIcon = document.querySelector("#cart-icon");
+            const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+
+            if (itemCount > 0) {
+                cartIcon.innerHTML = `<i class="fas fa-shopping-cart"></i> Cart (${itemCount})`;
+            } else {
+                cartIcon.innerHTML = `<i class="fas fa-shopping-cart"></i> Cart`;
+            }
+        }
+
+        // Show Cart Content When Cart Icon is Clicked
+        document.getElementById("cart-icon").addEventListener("click", function (e) {
+            e.preventDefault();
+            if (cart.length === 0) {
+                alert("🛒 Your cart is empty.");
+                return;
+            }
+
+            let cartMessage = "🛒 Your Cart Contains:\n\n";
+            cart.forEach(item => {
+                cartMessage += `${item.quantity} x ${item.name} - ₱${(item.price * item.quantity).toLocaleString()}\n`;
+            });
+
+            // Show Total Amount
+            const totalAmount = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            cartMessage += `\n💸 Total: ₱${totalAmount.toLocaleString()}`;
+
+            alert(cartMessage);
+        });
+
+        // Checkout Button Logic
+        document.getElementById("checkout-btn").addEventListener("click", function (e) {
+            e.preventDefault();
+
+            if (cart.length === 0) {
+                alert("⚠️ Your cart is empty. Add items before checking out.");
+                return;
+            }
+
+            let checkoutMessage = "✅ Checkout Summary:\n\n";
+            cart.forEach(item => {
+                checkoutMessage += `${item.quantity} x ${item.name} - ₱${(item.price * item.quantity).toLocaleString()}\n`;
+            });
+
+            // Show Total Amount
+            const totalAmount = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            checkoutMessage += `\n💸 Total: ₱${totalAmount.toLocaleString()}\n\nProceed to payment?`;
+
+            if (confirm(checkoutMessage)) {
+                // Simulate Redirect to Payment or Confirmation Page
+                alert("✅ Payment Successful! Thank you for shopping with us.");
+                
+                // Clear cart after checkout
+                cart = [];
+                updateCartIcon(); // Reset cart count
+
+                // Reset all "Add to Cart" buttons to initial state
+                document.querySelectorAll(".add-to-cart").forEach(button => {
+                    button.textContent = "Add to Cart";
+                    const removeBtn = button.parentNode.querySelector(".remove-from-cart");
+                    if (removeBtn) {
+                        removeBtn.remove(); // Remove the "Remove from Cart" button
+                    }
+                });
+            }
+        });
+
+
+    // Recommendations
+    const recommendations = {
+        "Gpu": [
+            { src: "Gpu/gpu1.png", name: "RX 6600" },
+            { src: "Gpu/gpu2.png", name: "RX 580" },
+            { src: "Gpu/gpu3.webp", name: "RTX 4060ti" },
+            { src: "Gpu/gpu4.png", name: "RTX 5090 " }
+        ],
+        "Shoes": [
+            { src: "Shoes/shoes1.webp", name: "Kobe V" },
+            { src: "Shoes/shoes2.png", name: "Nike Revolution 7" },
+            { src: "Shoes/shoes3.webp", name: "Nike Precision 7" },
+            { src: "Shoes/shoes4.webp", name: "NIKE G.T. CUT 3" }
+        ],
+        "Helmet": [
+            { src: "helmets/helmet1.png", name: "X21 Evo" },
+            { src: "helmets/helmet2.png", name: "Scorpion EXO R1 EVO" },
+            { src: "helmets/helmet3.webp", name: "Spyder Rogue+" },
+            { src: "helmets/helmet4.webp", name: "Spyder Phoenix+" }
+        ],
+        "Water Bottle": [
+            { src: "water bottle/bottle1.webp", name: "Hydro Flask Wide Mouth 40 oz" },
+            { src: "water bottle/bottle2.webp", name: "Hydro Flask Narrow Mouth 24 oz" },
+            { src: "water bottle/bottle3.png", name: "AQUAFLASK (32oz) Wide Mouth w/ Spout Lid V2" },
+            { src: "water bottle/bottle4.png", name: "14oz Arctic White" }
+        ],
+        "Watch": [
+            { src: "watch/watch1.webp", name: "Rolex Diamond Cellar" },
+            { src: "watch/watch2.avif", name: "Rolex Day-Date 40" },
+            { src: "watch/watch3.webp", name: "SEIKO Watch SSK001 42.5mm" },
+            { src: "watch/watch4.webp", name: "Casio LF-20W-1ADF" }
+        ],
+        "Router": [
+            { src: "router/router1.webp", name: "Asus ROG Rapture GT-AX11000 802.11AX Tri-Band Gaming Router" },
+            { src: "router/router2.webp", name: "Netgear Nighthawk Pro Gaming 6-Stream WiFi 6 Router (XR1000)" },
+            { src: "router/router3.png", name: "MSI launches RadiX AXE6600 Tri-band Wi-Fi 6E gaming router" },
+            { src: "router/router4.avif", name: "Reyee E6 AX6000 gaming router" }
+        ],
+        "Peripheral": [
+            { src: "peripheral/peripheral1.webp", name: "Razer Lacehead Wireless Mouse" },
+            { src: "peripheral/peripheral2.png", name: "Asus TUF Gaming M3" },
+            { src: "peripheral/peripheral3.png", name: "Logitech G Pro X TKL " },
+            { src: "peripheral/peripheral4.webp", name: "Reddragon K631" }
+        ],
+        "Bags": [
+            { src: "", name: "" },
+            { src: "", name: "" },
+            { src: "", name: "" },
+            { src: "", name: "" }
+        ],
+        "Mechanical Keyboard": [
+            { src: "", name: "" },
+            { src: "", name: "" },
+            { src: "", name: "" },
+            { src: "", name: "" }
+        ],
+        "Gaming Headset": [
+            { src: "", name: "" },
+            { src: "", name: "" },
+            { src: "", name: "" },
+            { src: "", name: "" }
+        ],
+        "Wireless Mouse": [
+            { src: "", name: "" },
+            { src: "", name: "" },
+            { src: "", name: "" },
+            { src: "", name: "" }
+        ],
+        "Monitor": [
+            { src: "", name: "" },
+            { src: "", name: "" },
+            { src: "", name: "" },
+            { src: "", name: "" }
+        ],
+        "Gaming Laptop": [
+            { src: "", name: "" },
+            { src: "", name: "" },
+            { src: "", name: "" },
+            { src: "", name: "" }
+        ],
+        "Gaming PC": [
+            { src: "", name: "" },
+            { src: "", name: "" },
+            { src: "", name: "" },
+            { src: "", name: "" }
+        ],
+        "Gaming Chair": [
+            { src: "", name: "" },
+            { src: "", name: "" },
+            { src: "", name: "" },
+            { src: "", name: "" }
+        ],
+        "Mousepad": [
+            { src: "", name: "" },
+            { src: "", name: "" },
+            { src: "", name: "" },
+            { src: "", name: "" }
+        ]
+    };
+
+    const recommendationBoxes = document.querySelectorAll(".featured-categories .category");
+
+    // Load last saved recommendation from localStorage
+    document.addEventListener("DOMContentLoaded", function () {
+        const lastSelectedProduct = localStorage.getItem("lastSelectedProduct");
+        if (lastSelectedProduct) {
+            updateRecommendations(lastSelectedProduct);
+        }
+    });
+
+    searchInput.addEventListener("input", function () {
+        const query = searchInput.value.toLowerCase().trim();
+        suggestionsContainer.innerHTML = "";
+
+        if (query.length === 0) {
+            suggestionsContainer.style.display = "none";
+            return;
+        }
+
+        const suggestions = [];
+
+        // Search categories and product names
+        Object.keys(recommendations).forEach(category => {
+            if (category.toLowerCase().includes(query)) {
+                suggestions.push({ type: "category", label: category });
+            }
+
+            recommendations[category].forEach(product => {
+                if (product.name && product.name.toLowerCase().includes(query)) {
+                    suggestions.push({ type: "product", label: product.name, category });
+                }
+            });
+        });
+
+        if (suggestions.length > 0) {
+            suggestionsContainer.style.display = "block";
+            suggestions.forEach(suggestion => {
+                const div = document.createElement("div");
+                div.classList.add("suggestion-item");
+                div.textContent = suggestion.label;
+                div.addEventListener("click", function () {
+                    searchInput.value = suggestion.label;
+                    suggestionsContainer.innerHTML = "";
+                    suggestionsContainer.style.display = "none";
+
+                    const selectedCategory = suggestion.type === "product" ? suggestion.category : suggestion.label;
+
+                    // Save to localStorage and update recommendations
+                    localStorage.setItem("lastSelectedProduct", selectedCategory);
+                    updateRecommendations(selectedCategory);
+                });
+                suggestionsContainer.appendChild(div);
+            });
+        } else {
+            suggestionsContainer.style.display = "none";
+        }
+    });
+
+    // Function to update recommendations
+    function updateRecommendations(selectedProduct) {
+        if (recommendations[selectedProduct]) {
+            recommendationBoxes.forEach((box, index) => {
+                const imgElement = box.querySelector("img");
+
+                // Check if an image exists for this index
+                if (recommendations[selectedProduct][index]) {
+                    imgElement.src = recommendations[selectedProduct][index].src;
+
+                    // Check if a <p> exists for this specific image, if not, create one
+                    let textElement = box.querySelector(".product-description");
+                    if (!textElement) {
+                        textElement = document.createElement("p");
+                        textElement.classList.add("product-description");
+                        box.appendChild(textElement);
+                    }
+
+                    // Set the custom name for each image
+                    textElement.textContent = recommendations[selectedProduct][index].name;
+                } else {
+                    imgElement.src = "";
+
+                    // Remove the <p> if there's no image
+                    const textElement = box.querySelector(".product-description");
+                    if (textElement) {
+                        textElement.remove();
+                    }
+                }
+            });
+        }
+    }
+
+
+// Modal functionality
+const modal = document.getElementById("productModal");
+const modalImg = document.getElementById("modalImg");
+const modalName = document.getElementById("modalName");
+const modalPrice = document.getElementById("modalPrice");
+const closeBtn = document.querySelector(".close-button");
+const addToCartBtn = document.getElementById("addToCartBtn");  // Add to Cart button
+const removeFromCartBtn = document.getElementById("removeFromCartBtn");  // Remove from Cart button
+const cartIcon = document.querySelector("#cart-icon");  // Cart Icon to update count
+
+document.querySelectorAll(".slider-wrapper .slide").forEach(slide => {
+    slide.addEventListener("click", () => {
+        const name = slide.getAttribute("data-name");
+        const price = slide.getAttribute("data-price");
+        const img = slide.getAttribute("data-img");
+
+        // Update modal with product details
+        modalImg.src = img;
+        modalName.textContent = name;
+        modalPrice.textContent = price;
+        modal.style.display = "block";
+
+        // Store product details in modal data attributes
+        addToCartBtn.dataset.name = name;
+        addToCartBtn.dataset.price = price;
+        addToCartBtn.dataset.img = img;
+        
+        // Show the "Remove from Cart" button if the product already exists in the cart
+        const existingItemIndex = cart.findIndex(item => item.name === name);
+        if (existingItemIndex !== -1) {
+            // If item exists in cart, show Remove button and set correct quantity
+            removeFromCartBtn.style.display = "inline-block";  // Show the button
+            removeFromCartBtn.dataset.name = name;
+        } else {
+            removeFromCartBtn.style.display = "none";  // Hide the button if not in cart
+        }
+    });
+});
+
+// Add to Cart functionality
+// Add to Cart functionality
+addToCartBtn.addEventListener("click", () => {
+    const quantityInput = document.getElementById("quantityInput"); // Get the quantity input from the modal
+    const quantity = parseInt(quantityInput.value) || 1; // Default to 1 if input is invalid
+
+    const product = {
+        name: addToCartBtn.dataset.name,
+        price: parseFloat(addToCartBtn.dataset.price.replace(/[^\d.-]/g, '')), // Remove the ₱ symbol and parse as number
+        img: addToCartBtn.dataset.img,
+        quantity: quantity  // Set the quantity from input
+    };
+
+    // Check if the product already exists in the cart
+    const existingItemIndex = cart.findIndex(item => item.name === product.name);
+
+    if (existingItemIndex !== -1) {
+        // If the item already exists, increase the quantity
+        cart[existingItemIndex].quantity += quantity;
+        addToCartBtn.textContent = "Add More"; // Change the button text
+        alert(`✅ Added ${quantity} more x ${product.name} to your cart!`);
+    } else {
+        // Otherwise, add a new product to the cart
+        cart.push({
+            name: product.name,
+            price: product.price,
+            img: product.img,
+            quantity: quantity  // Set the quantity from input
+        });
+        addToCartBtn.textContent = "Add More"; // Change the button text
+        alert(`✅ Added ${quantity} x ${product.name} to your cart!`);
+    }
+
+    // Update the cart icon with the number of items
+    updateCartIcon();
+
+    // Close the modal after adding the item to the cart
+    modal.style.display = "none";
+});
+
+
+// Remove from Cart functionality (show only message)
+removeFromCartBtn.addEventListener("click", () => {
+    const productName = removeFromCartBtn.dataset.name;
+    const itemIndex = cart.findIndex(item => item.name === productName);
+
+    if (itemIndex !== -1) {
+        const currentQuantity = cart[itemIndex].quantity;
+
+        // Get the quantity to remove from the modal's quantity input
+        const quantityToRemove = parseInt(modal.querySelector("#quantityInput").value) || 1;
+
+        // If the quantity to remove is more than available, show an error message
+        if (quantityToRemove > currentQuantity) {
+            alert(`⚠️ You only have ${currentQuantity} x ${productName} in your cart. Cannot remove more.`);
+        } else if (quantityToRemove === currentQuantity) {
+            // If the quantity to remove matches the current quantity, remove the item entirely
+            cart.splice(itemIndex, 1);
+            alert(`❌ Removed all ${productName} from your cart!`);
+        } else {
+            // If the quantity to remove is less than the current quantity, just decrease it
+            cart[itemIndex].quantity -= quantityToRemove;
+            alert(`➖ Removed ${quantityToRemove} x ${productName} from your cart!`);
+        }
+    }
+
+    updateCartIcon(); // Update cart icon after removal
+
+    // Close the modal
+    modal.style.display = "none";
+});
+
+
+// Close the modal when clicking the close button or outside the modal
+closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+window.addEventListener("click", e => {
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
+});
+
+// Update Cart Icon with the current number of items in the cart
+function updateCartIcon() {
+    const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+
+    if (itemCount > 0) {
+        cartIcon.innerHTML = `<i class="fas fa-shopping-cart"></i> Cart (${itemCount})`;
+    } else {
+        cartIcon.innerHTML = `<i class="fas fa-shopping-cart"></i> Cart`;
+    }
+}
+
+// Function to render the cart
+function renderCart() {
+    const cartContainer = document.getElementById("cartContainer");  // Where the cart is displayed
+    cartContainer.innerHTML = "";  // Clear current cart
+
+    // Loop through the cart and display items
+    cart.forEach(item => {
+        // Create an element for each item
+        const cartItem = document.createElement("div");
+        cartItem.classList.add("cart-item");
+
+        // Format price as currency
+        const formattedPrice = `₱${item.price.toLocaleString()}`; // Format price with ₱
+
+        // Display item details
+        cartItem.innerHTML = `
+            <img src="${item.img}" alt="${item.name}" width="50" />
+            <span class="cart-item-name">${item.name}</span>
+            <span class="cart-item-quantity">x${item.quantity}</span>
+            <span class="cart-item-price">${formattedPrice}</span>  <!-- Show price with ₱ -->
+            <button class="remove-from-cart" data-name="${item.name}">Remove</button>
+        `;
+
+        // Add to the container
+        cartContainer.appendChild(cartItem);
+    });
+
+    // Update cart icon with the number of items
+    updateCartIcon();
+}
+
+// Update Cart Icon with the current number of items in the cart
+function updateCartIcon() {
+    const itemCount = cart.reduce((total, item) => total + item.quantity, 0); // Calculate total items in cart
+
+    if (itemCount > 0) {
+        cartIcon.innerHTML = `<i class="fas fa-shopping-cart"></i> Cart (${itemCount})`;
+    } else {
+        cartIcon.innerHTML = `<i class="fas fa-shopping-cart"></i> Cart`;
+    }
+}
+
+
+
+
+
+    
+
+        
+
+        </script>
+        </body>
+        </html>
